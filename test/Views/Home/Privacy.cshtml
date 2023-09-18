@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "Create Notication";
+}
+<h1>@ViewData["Title"]</h1>
+
+
+    <label for="be">BE</label>
+    <input type="text" id="be" name="be"><br><br>
+    <label for="fe">FE</label>
+    <input type="text" id="fe" name="fe"><br><br>
+    <label for="qa">QA</label>
+    <input type="text" id="qa" name="qa"><br><br>
+    <label for="Urgent">Urgent</label>
+    <input type="text" id="Urgent" name="Urgent"><br><br>
+    <label for="ha">HAHA</label>
+    <input type="text" id="ha" name="ha"><br><br>
+    <input type="button" value="Submit" onclick="myFunction()">
+
+<script>
+    function myFunction() {
+        
+        var be = document.getElementById('be').value;
+        var fe = document.getElementById('fe').value;
+        var qa = document.getElementById('qa').value;
+        var ug = document.getElementById('Urgent').value;
+        var vv = "Receive channels: " + be + " " + fe + " " + qa + " " + ug;
+       alert(vv);
+        $.ajax({
+            url: "/Home/Data?data=" + vv,
+            type: "Get",
+           
+            success: function (response) {
+                alert("Ok");
+            },
+            error: function (request, status, error) {
+                alert("error");
+            }
+        });
+    }
+</script>
